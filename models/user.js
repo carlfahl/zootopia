@@ -7,7 +7,8 @@ var user = new Schema({
   local: {
     username: String,
     password: String
-  }
+  },
+  location: {type: Schema.Types.ObjectId, ref: 'Location'}
 });
 
 user.methods.generateHash = function (password) {
