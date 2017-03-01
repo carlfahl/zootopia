@@ -3,6 +3,8 @@ var bodyParser = require('body-parser');
 var app = express();
 var mongoose = require('mongoose');
 
+require('dotenv').config();
+
 // The needed require statements for passport
 // express-session for keeping track of session data.
 var session = require('express-session');

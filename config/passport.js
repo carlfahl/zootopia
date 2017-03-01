@@ -1,7 +1,10 @@
 // Setup to use the local stratigy of passport.
 var LocalStrategy = require('passport-local').Strategy;
+var TwitterStrategy = require('passport-twitter').Strategy;
 // Include the data model for our users
 var User = require('../models/user.js');
+
+var configAuth = require('./auth');
 
 module.exports = function (passport) {
   // =========================================================================
@@ -72,4 +75,38 @@ module.exports = function (passport) {
       return done(null, user);
     });
   }));
+
+  passport.use('twitter', new TwitterStrategy({
+    consumerKey     : configAuth.twitterAuth.consumerKey,
+    consumerSecret  : configAuth.twitterAuth.consumerSecret,
+    callbackURL     : configAuth.twitterAuth.callbackURL
+  },
+  function(token, tokenSecret, profile, done) {
+    process.nextTick(function() {
+      User.find({'twitter.id': profile.id}, function (err, user) {
+        // If an error occurs
+        if (err) {
+          return done(err)
+        }
+        // If user is found, log them in.
+        if(user) {
+          return done(null, user);
+        } else {
+          // If user was not found, add to database.
+          var newUser = new User();
+          newUser.token = token;
+          newUser.id = profile.id;
+          newUser.displayName = profile.displayName;
+          newUser.username = profile.username;
+          newUser.save(function (err) {
+            if (err) {
+              throw err;
+            }
+            return done(null, newUser);
+          });
+        }
+      });
+    });
+  }));
+
 };
