@@ -94,10 +94,10 @@ module.exports = function (passport) {
         } else {
           // If user was not found, add to database.
           var newUser = new User();
-          newUser.token = token;
-          newUser.id = profile.id;
-          newUser.displayName = profile.displayName;
-          newUser.username = profile.username;
+          newUser.twitter.token = token;
+          newUser.twitter.id = profile.id;
+          newUser.twitter.displayName = profile.displayName;
+          newUser.twitter.username = profile.username;
           newUser.save(function (err) {
             if (err) {
               throw err;

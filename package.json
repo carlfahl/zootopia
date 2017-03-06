@@ -1,10 +1,14 @@
 {
   "name": "zootopia",
   "version": "1.0.0",
-  "description": "Learn js by doing.",
+  "description": "Learn full stack js by doing",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nf start -p 3000 --procfile Procfile.dev",
+    "server": "node server.js",
+    "servermon": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -17,21 +21,16 @@
   },
   "homepage": "https://github.com/fresh5447/zootopia#readme",
   "dependencies": {
-    "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.16.0",
     "connect-flash": "^0.1.1",
-    "cookie-parser": "^1.4.3",
-    "dotenv": "^4.0.0",
-    "ejs": "^2.5.5",
+    "ejs": "^2.5.6",
     "express": "^4.14.1",
     "express-session": "^1.15.1",
-    "jquery": "^3.1.1",
-    "mongoose": "^4.8.2",
-    "mongoose-findorcreate": "^1.0.0",
-    "morgan": "^1.8.1",
-    "node-bcrypt": "^0.0.1",
+    "mongoose": "^4.8.1",
     "passport": "^0.3.2",
-    "passport-local": "^1.0.0",
-    "passport-twitter": "^1.0.4"
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "foreman": "^2.0.0"
   }
 }
