@@ -29,9 +29,11 @@
     </form>
 
     <ul>
+      <% if (user.location) { %>
       <li>City: <%= user.location.city %></li>
       <li>State: <%= user.location.state %> </li>
       <li>Zip: <%= user.location.zip %></li>
+      <% } %>
     </ul>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

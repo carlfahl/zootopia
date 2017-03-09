@@ -9,6 +9,12 @@ var user = new Schema({
     username: String,
     password: String
   },
+  facebook: {
+    id: String,
+    token: String,
+    name: String,
+    email: String
+  },
   twitter: {
     id: String,
     token: String,

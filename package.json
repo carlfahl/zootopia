@@ -21,14 +21,21 @@
   },
   "homepage": "https://github.com/fresh5447/zootopia#readme",
   "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.16.0",
     "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^4.0.0",
     "ejs": "^2.5.6",
     "express": "^4.14.1",
     "express-session": "^1.15.1",
+    "jquery": "^3.1.1",
     "mongoose": "^4.8.1",
+    "morgan": "^1.8.1",
     "passport": "^0.3.2",
-    "passport-local": "^1.0.0"
+    "passport-facebook": "^2.1.1",
+    "passport-local": "^1.0.0",
+    "passport-twitter": "^1.0.4"
   },
   "devDependencies": {
     "foreman": "^2.0.0"
