@@ -117,10 +117,10 @@ module.exports = function (passport) {
       User.find({'twitter.id': profile.id}, function (err, user) {
         // If an error occurs
         if (err) {
-          return done(err)
+          return done(err);
         }
         // If user is found, log them in.
-        if(user) {
+        if(user && (user.length != 0)) {
           return done(null, user);
         } else {
           // If user was not found, add to database.
